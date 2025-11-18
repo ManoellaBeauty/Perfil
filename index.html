@@ -1,275 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" /><!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manoella Beauty</title>
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoella Beauty - Extensão de Cílios</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="top-header">
-    <img src="img/logo.jpeg" alt="Logo Manoella Beauty" class="logo-principal">
-  </header>
+    <!-- Fundo suave -->
+    <div class="background"></div>
 
-  <!-- SOBRE -->
-  <section class="sobre-section">
-    <div class="sobre-container">
-      <img src="img/foto.jpeg" alt="Foto de perfil" class="foto-redonda">
+    <!-- Header -->
+    <header>
+        <img src="img/logo.jpeg" class="logo" alt="Logo Manoella Beauty">
+    </header>
 
-      <div class="sobre-texto">
-        <h2 class="sobre-titulo">Sobre Manoella</h2>
-        <p class="sobre-bio">
-          Breve biografia da Manoella será adicionada aqui. Um texto elegante que apresenta sua experiência,
-          especialidades e a essência do seu trabalho no mundo da beleza.
-        </p>
-      </div>
-    </div>
-  </section>
+    <!-- Foto principal -->
+    <section class="perfil">
+        <img src="img/foto.jpeg" class="foto-perfil" alt="Foto Manoella">
+        <h1>Manoella Beauty</h1>
+        <p>Especialista em extensão de cílios e design de sobrancelhas. Elevando sua autoestima através do olhar.</p>
+    </section>
 
-  <!-- VÍDEOS (SLIDER) -->
-  <section class="videos-section">
-    <h2 class="titulo-sessao">Destaques em Vídeo</h2>
-
-    <div class="slider-container">
-      <button class="slider-btn prev">&#10094;</button>
-
-      <div class="slider-wrapper">
-
-        <div class="slide">
-          <video src="videos/video1.mp4" controls></video>
+    <!-- Slider de vídeos -->
+    <section class="video-slider">
+        <h2>Transformações</h2>
+        <div class="slider">
+            <video src="videos/video1.mp4" autoplay muted loop></video>
+            <video src="videos/video2.mp4" autoplay muted loop></video>
+            <video src="videos/video3.mp4" autoplay muted loop></video>
         </div>
+    </section>
 
-        <div class="slide">
-          <video src="videos/video2.mp4" controls></video>
-        </div>
+    <!-- Serviços -->
+    <section class="servicos">
+        <h2>Serviços</h2>
 
-        <div class="slide">
-          <video src="videos/video3.mp4" controls></video>
-        </div>
+        <div class="servicos-grid">
 
-      </div>
+            <div class="card">
+                <img src="img/brasileiro.jpeg" alt="Cílios Brasileiro">
+                <h3>Volume Brasileiro</h3>
+                <a href="agendamento.html">Agendar</a>
+            </div>
 
-      <button class="slider-btn next">&#10095;</button>
-    </div>
-  </section>
+            <div class="card">
+                <img src="img/tufos4d.jpeg" alt="Tufos 4D">
+                <h3>Tufos 4D</h3>
+                <a href="agendamento.html">Agendar</a>
+            </div>
 
-  <!-- SERVIÇOS -->
-  <section class="servicos-section">
-    <h2 class="titulo-sessao">Serviços</h2>
-
-    <div class="servicos-grid">
-
-      <div class="servico-card">
-        <img src="img/tufos4d.jpeg" class="servico-img">
-        <h3>Tufos Tecnológicos 4D</h3>
-        <span class="preco">R$ 75,00</span>
-        <p>Procedimento com tufos tecnológicos 4D e semi isolamento dos fios.</p>
-      </div>
-
-      <div class="servico-card">
-        <img src="img/boss.jpeg" class="servico-img">
-        <h3>Volume BO$$</h3>
-        <span class="preco">R$ 70,00</span>
-        <p>Olhar marcante, preenchido e com muito destaque.</p>
-      </div>
-
-      <div class="servico-card">
-        <img src="img/luxo.jpeg" class="servico-img">
-        <h3>Volume Luxo</h3>
-        <span class="preco">R$ 65,00</span>
-        <p>Volume leve, elegante e marcante.</p>
-      </div>
-
-      <div class="servico-card">
-        <img src="img/glamour.jpeg" class="servico-img">
-        <h3>Volume Glamour</h3>
-        <span class="preco">R$ 65,00</span>
-        <p>Volume marcante para destaque máximo.</p>
-      </div>
-
-      <div class="servico-card">
-        <img src="img/priss.jpeg" class="servico-img">
-        <h3>Volume Priss</h3>
-        <span class="preco">R$ 60,00</span>
-        <p>Volume equilibrado e bonito.</p>
-      </div>
-
-      <div class="servico-card">
-        <img src="img/classic.jpeg" class="servico-img">
-        <h3>Volume Classic</h3>
-        <span class="preco">R$ 50,00</span>
-        <p>Natural, discreto e com leve volume.</p>
-      </div>
-
-      <div class="servico-card">
-        <img src="img/brasileiro.jpeg" class="servico-img">
-        <h3>Tufos Brasileiro</h3>
-        <span class="preco">R$ 65,00</span>
-        <p>Natural, elegante e leve.</p>
-      </div>
-
-      <div class="servico-card">
-        <img src="img/henna.jpeg" class="servico-img">
-        <h3>Design com Henna</h3>
-        <span class="preco">R$ 30,00</span>
-        <p>Define, corrige falhas e realça o olhar.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ÍCONES RODAPÉ -->
-  <footer class="rodape">
-    <div class="rodape-icons">
-      <a href="https://www.instagram.com/manoellabeauty_/" class="icon-box">
-        <img src="img/instagram.jpeg" alt="Instagram">
-      </a>
-
-      <a href="https://wa.me/SEUNUMERO" class="icon-box">
-        <img src="img/whatsapp.jpeg" alt="WhatsApp">
-      </a>
-    </div>
-
-    <p class="rodape-copy">© 2025 Manoella Beauty</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Manoella Beauty — Luxo & Modernidade</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="top-header">
-    <div class="logo-container">
-      <img src="img/logo.jpeg" alt="Manoella Beauty Logo" class="logo-principal">
-    </div>
-    <nav class="main-nav">
-      <a href="index.html#servicos">Serviços</a>
-      <a href="index.html#videos">Destaques</a>
-      <a href="agendamento.html">Agendamento</a>
-      <a href="index.html#contato">Contato</a>
-    </nav>
-  </header>
-
-  <!-- SOBRE -->
-  <section class="sobre-section" id="sobre">
-    <div class="sobre-container">
-      <div class="sobre-foto">
-        <img src="img/foto.jpeg" alt="Manoella" class="foto-redonda">
-      </div>
-      <div class="sobre-texto">
-        <h2 class="sobre-titulo">Sobre Manoella</h2>
-        <p class="sobre-bio">Sou especialista em estética de cílios e sobrancelhas. Trabalho com técnicas modernas e seguras para realçar o seu olhar com resultado natural e elegante.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- VÍDEOS / SLIDER -->
-  <section class="videos-section" id="videos">
-    <h2 class="titulo-sessao">Destaques em Vídeo</h2>
-    <div class="slider-container">
-      <button class="slider-btn prev" id="prevBtn">&#10094;</button>
-      <div class="slider-wrapper" id="videoSlider">
-        <div class="slide"><video src="videos/Ainda_nao_superei_esse_cilios.mp4" muted loop playsinline></video></div>
-        <div class="slide"><video src="videos/amo_esse_olhar.mp4" muted loop playsinline></video></div>
-        <div class="slide"><video src="videos/amo_transforma_olhares.mp4" muted loop playsinline></video></div>
-      </div>
-      <button class="slider-btn next" id="nextBtn">&#10095;</button>
-    </div>
-  </section>
-
-  <!-- SERVIÇOS -->
-  <section class="servicos-section" id="servicos">
-    <h2 class="titulo-sessao">Serviços</h2>
-    <div class="servicos-grid">
-
-      <div class="servico-card" data-service="Tufos Tecnológicos 4D" data-price="75">
-        <img src="img/tufos_4d.jpeg" class="servico-img" alt="">
-        <h3>Tufos Tecnológicos 4D</h3>
-        <span class="preco">R$ 75,00</span>
-        <p>Procedimento com tufos tecnológicos 4D, resultado moderno e rápido.</p>
-        <button class="btn-selecionar">Selecionar</button>
-      </div>
-
-      <div class="servico-card" data-service="Volume BOSS" data-price="70">
-        <img src="img/volume_boss.jpeg" class="servico-img" alt="">
-        <h3>Volume BO$$</h3>
-        <span class="preco">R$ 70,00</span>
-        <p>Olhar muito marcado e volumoso.</p>
-        <button class="btn-selecionar">Selecionar</button>
-      </div>
-
-      <div class="servico-card" data-service="Volume Luxo" data-price="65">
-        <img src="img/volume_luxo.jpeg" class="servico-img" alt="">
-        <h3>Volume Luxo</h3>
-        <span class="preco">R$ 65,00</span>
-        <p>Olhar levemente volumoso e elegante.</p>
-        <button class="btn-selecionar">Selecionar</button>
-      </div>
-
-      <div class="servico-card" data-service="Volume Glamour" data-price="65">
-        <img src="img/volume_glamour.jpeg" class="servico-img" alt="">
-        <h3>Volume Glamour</h3>
-        <span class="preco">R$ 65,00</span>
-        <p>Olhar bem preenchido e marcante.</p>
-        <button class="btn-selecionar">Selecionar</button>
-      </div>
-
-      <div class="servico-card" data-service="Volume Priss" data-price="60">
-        <img src="img/volume_priss.jpeg" class="servico-img" alt="">
-        <h3>Volume Priss</h3>
-        <span class="preco">R$ 60,00</span>
-        <p>Volume mediano e elegante.</p>
-        <button class="btn-selecionar">Selecionar</button>
-      </div>
-
-      <div class="servico-card" data-service="Volume Classic" data-price="50">
-        <img src="img/volume_classic.jpeg" class="servico-img" alt="">
-        <h3>Volume Classic</h3>
-        <span class="preco">R$ 50,00</span>
-        <p>Olhar discreto com leve volume.</p>
-        <button class="btn-selecionar">Selecionar</button>
-      </div>
-
-      <div class="servico-card" data-service="Tufos Brasileiro" data-price="65">
-        <img src="img/tufos_brasileiro.jpeg" class="servico-img" alt="">
-        <h3>Tufos Brasileiro</h3>
-        <span class="preco">R$ 65,00</span>
-        <p>Alongamento natural e discreto.</p>
-        <button class="btn-selecionar">Selecionar</button>
-      </div>
-
-      <div class="servico-card" data-service="Design com Henna" data-price="30">
-        <img src="img/design_henna.jpeg" class="servico-img" alt="">
-        <h3>Design com Henna</h3>
-        <span class="preco">R$ 30,00</span>
-        <p>Coloração, correção e definição das sobrancelhas.</p>
-        <button class="btn-selecionar">Selecionar</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- RODAPÉ / CONTATO -->
-  <footer class="rodape" id="contato">
-    <div class="rodape-icons">
-      <a href="https://www.instagram.com/manoellabeauty_/" target="_blank"><img src="img/icon_instagram.png" alt="Instagram"></a>
-      <a href="https://wa.me/5521999999999" target="_blank"><img src="img/icon_whatsapp.png" alt="WhatsApp"></a>
-    </div>
-    <p class="rodape-copy">© 2025 Manoella Beauty</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
+            <div class="card">
+                <img src=
