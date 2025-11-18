@@ -1,117 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agendamento — Manoella Beauty</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="top-header">
-    <div class="logo-container">
-      <img src="img/logo.jpeg" alt="Manoella Beauty Logo" class="logo-principal">
-    </div>
-    <nav class="main-nav">
-      <a href="index.html">Início</a>
-      <a href="agendamento.html">Agendamento</a>
-    </nav>
+
+  <div class="bg-particles" id="bgParticles" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <img src="img/logo.jpeg" alt="Manoella Beauty - Logo" class="site-logo">
   </header>
 
-  <main class="container">
-    <h1 class="sobre-titulo">Agende seu horário</h1>
+  <main class="container agendamento-container">
+    <section class="agendamento-box">
+      <h1>Agendar Serviço</h1>
+      <p class="subtitle">Preencha seus dados — o pagamento de 50% confirma o agendamento (opção PIX), ou pode pagar no local antes do início.</p>
 
-    <div class="mini-slider">
-      <video src="videos/amo_esse_olhar.mp4" muted loop playsinline></video>
-    </div>
+      <form id="bookingForm">
+        <label>Serviço selecionado</label>
+        <input type="text" id="serviceField" readonly>
 
-    <section class="agendamento-section">
-      <div class="resumo-servico">
-        <h3>Serviço selecionado:</h3>
-        <p id="selectedService">Nenhum</p>
-      </div>
-
-      <form id="bookingForm" class="form-agendamento">
-        <label>Serviço</label>
-        <select id="serviceSelect">
-          <option value="">-- escolha um serviço --</option>
-          <option value="Tufos Tecnológicos 4D|75">Tufos Tecnológicos 4D — R$75</option>
-          <option value="Volume BOSS|70">Volume BO$$ — R$70</option>
-          <option value="Volume Luxo|65">Volume Luxo — R$65</option>
-          <option value="Volume Glamour|65">Volume Glamour — R$65</option>
-          <option value="Volume Priss|60">Volume Priss — R$60</option>
-          <option value="Volume Classic|50">Volume Classic — R$50</option>
-          <option value="Tufos Brasileiro|65">Tufos Brasileiro — R$65</option>
-          <option value="Design com Henna|30">Design com Henna — R$30</option>
-        </select>
+        <label>Valor (R$)</label>
+        <input type="text" id="priceField" readonly>
 
         <label>Nome completo</label>
-        <input id="nome" type="text" placeholder="Seu nome" required>
+        <input type="text" id="clientName" placeholder="Seu nome" required>
 
-        <label>Telefone (WhatsApp)</label>
-        <input id="telefone" type="text" placeholder="55 21 9XXXX-XXXX" required>
+        <label>WhatsApp</label>
+        <input type="tel" id="clientPhone" placeholder="(DDD) 9xxxx-xxxx" required>
 
-        <label>Data</label>
-        <input id="data" type="date" required>
+        <div class="two-col">
+          <div>
+            <label>Data</label>
+            <input type="date" id="dateField" required>
+          </div>
+          <div>
+            <label>Horário</label>
+            <input type="time" id="timeField" required>
+          </div>
+        </div>
 
-        <label>Hora</label>
-        <input id="hora" type="time" required>
-
-        <h3 class="pag-title">Pagamento</h3>
-        <select id="paymentType">
-          <option value="">-- escolha --</option>
+        <label>Forma de pagamento</label>
+        <select id="payMethod" required>
+          <option value="">Selecione...</option>
           <option value="pix">PIX — pagar 50% agora</option>
           <option value="local">Pagar no local (antes do serviço)</option>
         </select>
 
         <div id="pixArea" class="pix-area" style="display:none;">
-          <p>Escaneie o QR ou use a chave:</p>
-          <div class="pix-box"><img src="img/pix_qr.png" alt="QR PIX" class="pix-img"></div>
-          <p class="chave-pix"><strong>Chave PIX:</strong> chave@exemplo.com</p>
-          <p id="valor50"></p>
+          <div class="pix-qr">
+            <img src="img/qrcode.jpeg" alt="QR Code PIX" />
+          </div>
+          <p>Chave PIX: <strong>chave@exemplo.com</strong></p>
+          <a href="https://nubank.com.br/pagar" target="_blank" class="btn pay-link">Ir para pagamento (Nubank)</a>
+          <p class="small">Após o pagamento, envie o comprovante via WhatsApp para confirmar o horário.</p>
         </div>
 
-        <button id="confirmBtn" type="button">Confirmar agendamento</button>
+        <div class="actions">
+          <button type="submit" class="btn confirm">Confirmar Agendamento</button>
+          <a href="index.html" class="btn secondary">Voltar</a>
+        </div>
       </form>
+
+      <div class="note">
+        <strong>Observação:</strong> O pagamento de 50% é obrigatório para confirmar agendamentos online. Pagamento no local é permitido somente se efetuado antes do início do serviço.
+      </div>
     </section>
   </main>
 
-  <footer class="rodape">
-    <p class="rodape-copy">© 2025 Manoella Beauty</p>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://goo.gl/maps/" target="_blank" rel="noopener">Como Chegar</a> ·
+      <a href="https://www.instagram.com/manoellabeauty_/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="copyright">© 2025 Manoella Beauty</div>
   </footer>
 
   <script src="script.js"></script>
-</body>
-</html>
-    <input type="time" id="time" required>
+  <script>
+    // preenche formulário a partir da query string
+    (function prefillFromQuery(){
+      const params = new URLSearchParams(location.search);
+      const service = params.get('service') || '';
+      const price = params.get('price') || '';
+      if(service) document.getElementById('serviceField').value = decodeURIComponent(service);
+      if(price) document.getElementById('priceField').value = price.replace('.',',');
+    })();
 
-    <label>Forma de pagamento:</label>
-    <select id="payment" required>
-      <option value="">Escolha...</option>
-      <option value="pix">PIX (50% adiantado)</option>
-      <option value="local">Pagar no local</option>
-    </select>
+    // pagamento toggle & form submit
+    document.getElementById('payMethod').addEventListener('change', function(){
+      document.getElementById('pixArea').style.display = this.value === 'pix' ? 'block' : 'none';
+    });
 
-    <div class="pix-area">
-      <h3>QR Code para pagamento</h3>
-      <img src="img/qrcode.jpeg" alt="QR Code Pix" class="pix-img">
-      <p>Chave Pix: <strong>SEU_PIX_AQUI</strong></p>
-    </div>
-
-    <button type="submit">Confirmar Agendamento</button>
-  </form>
-</section>
-
-<footer>
-  <div class="socials">
-    <a href="https://www.instagram.com/SEU_INSTAGRAM" target="_blank">
-      <img src="img/instagram.jpeg" alt="Instagram">
-    </a>
-    <a href="https://wa.me/5521966058744" target="_blank">
-      <img src="img/whatsapp.jpeg" alt="WhatsApp">
-    </a>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // simple validation
+      const name = document.getElementById('clientName').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const date = document.getElementById('dateField').value;
+      const time = document.getElementById('timeField').value;
+      const pay = document.getElementById('payMethod').value;
+      if(!name || !phone || !date || !time || !pay) {
+        alert('Preencha todos os campos obrigatórios.');
+        return;
+      }
+      // Build message for WhatsApp with details
+      const service = document.getElementById('serviceField').value || 'Serviço não informado';
+      const price = document.getElementById('priceField').value || '';
+      const msg = `Olá, meu nome é ${name}. Gostaria de agendar: ${service} (${price}) no dia ${date} às ${time}. Forma de pagamento: ${pay === 'pix' ? 'PIX (50% pago)' : 'Pagamento no local (pago antes do serviço)'} - Enviar comprovante se aplicável.`;
+      const waNumber = '55219XXXXXXXX'; // substitua pelo número real (formato internacional sem +)
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+      // abrir WhatsApp para confirmar
+      window.open(url, '_blank');
+      alert('Você será direcionado ao WhatsApp para finalizar o agendamento. Após pagamento, envie o comprovante.');
+    });
+  </script>
 </body>
 </html>
