@@ -28,3 +28,4 @@ document.querySelectorAll(".service-card").forEach(card => {
         window.location.href = `agendamento.html?servico=${service}`;
     });
 });
+
