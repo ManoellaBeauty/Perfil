@@ -1,416 +1,134 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Manoella Beauty — Luxo e Modernidade</title>
-
-<!-- FONTES -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
-<style>
-/* ============================= */
-/* VARIÁVEIS */
-:root {
-  --bg-dark: #050505;
-  --accent-main: #ff0099;
-  --accent-light: #ff77c0;
-  --text-light: #ffffff;
-  --silver: #c5c5c5;
-  --bg-card-hover: rgba(255, 0, 153, 0.08);
-}
-
-/* RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body{
-  font-family: 'Montserrat', Arial, sans-serif;
-  background: radial-gradient(circle at 10% 10%, rgba(255,0,153,0.05), transparent 20%),
-              linear-gradient(180deg, var(--bg-dark), #000);
-  color: var(--text-light);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ============================= */
-/* FUNDO INTERATIVO */
-.bg-particles{
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-}
-.particle{
-  position: absolute;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: rgba(255,0,153,0.12);
-  animation: float 12s linear infinite;
-}
-@keyframes float{
-  0%   { transform: translateY(0) translateX(0) scale(1); }
-  50%  { transform: translateY(-60vh) translateX(20vw) scale(.9); }
-  100% { transform: translateY(0) translateX(-10vw) scale(1); }
-}
-
-/* ============================= */
-/* HEADER */
-header{
-  z-index: 10;
-  padding: 24px;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid rgba(255,0,153,0.18);
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
-}
-.logo{
-  width: 180px;
-  filter: drop-shadow(0 0 10px rgba(255, 0, 153, 0.1));
-}
-
-/* ============================= */
-/* CONTAINER */
-.container{
-  z-index: 5;
-  position: relative;
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-/* ============================= */
-/* HERO / FOTO */
-.hero{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-.profile-oval{
-  width: 220px; height: 220px;
-  border-radius: 50%;
-  border: 4px solid var(--accent-main);
-  box-shadow: 0 0 0 6px rgba(255, 0, 153, 0.3);
-  overflow: hidden;
-  transition: .3s;
-}
-.profile-oval img{
-  width: 100%; height: 100%; object-fit: cover;
-}
-.profile-oval:hover{
-  transform: scale(1.03);
-}
-.bio{
-  max-width: 720px;
-  color: var(--silver);
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* ============================= */
-/* SLIDER DE VÍDEOS */
-.video-slider{
-  margin: 50px auto;
-  max-width: 920px;
-  position: relative;
-}
-.slider-frame{
-  padding: 16px;
-  border-radius: 20px;
-  background: #000;
-  border: 2px solid rgba(255,0,153,0.3);
-  overflow: hidden;
-}
-.slides{
-  display: flex;
-  gap: 20px;
-  transition: transform .6s ease;
-}
-.slide video{
-  width: 320px; height: 560px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 3px solid var(--accent-main);
-}
-.slider-controls{
-  position: absolute;
-  top: 50%;
-  left: 10px; right: 10px;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-.ctrl-btn{
-  pointer-events: all;
-  background: rgba(0,0,0,0.6);
-  border: 1px solid var(--accent-main);
-  color: var(--accent-light);
-  padding: 10px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-/* ============================= */
-/* SERVIÇOS */
-.services{
-  margin-top: 70px;
-}
-.services h2{
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
-  color: var(--accent-light);
-  margin-bottom: 24px;
-}
-.cards{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.card{
-  padding: 20px;
-  border: 1px solid rgba(255,0,153,0.2);
-  background: rgba(255,255,255,0.03);
-  border-radius: 18px;
-  text-align: center;
-  transition: .3s;
-  cursor: pointer;
-}
-.card:hover{
-  transform: translateY(-6px);
-  background: var(--bg-card-hover);
-  box-shadow: 0 0 22px rgba(255,0,153,0.25);
-}
-.card img{
-  width: 180px; height: 180px;
-  border-radius: 14px;
-  object-fit: cover;
-  margin-bottom: 12px;
-  border: 3px solid var(--accent-main);
-}
-.card h3{
-  font-size: 1.3em;
-  font-weight: 600;
-}
-.price{
-  margin: 8px 0 12px;
-  font-size: 1.5em;
-  color: var(--accent-light);
-}
-.card p{
-  font-size: 14px;
-  color: var(--silver);
-}
-
-/* BOTÃO */
-.btn{
-  margin-top: 14px;
-  padding: 12px 22px;
-  border-radius: 100px;
-  border: 2px solid var(--accent-main);
-  color: var(--accent-main);
-  background: transparent;
-  font-weight: 700;
-  display: inline-block;
-  text-decoration: none;
-  transition: .3s;
-}
-.btn:hover{
-  background: var(--accent-main);
-  color: #000;
-}
-
-/* ============================= */
-/* FOOTER */
-footer{
-  margin-top: 60px;
-  padding: 25px;
-  text-align: center;
-  border-top: 1px solid rgba(255,0,153,0.2);
-  background: rgba(0,0,0,0.3);
-}
-footer img{
-  width: 42px; height: 42px;
-  border-radius: 10px;
-}
-
-/* RESPONSIVO */
-@media (max-width: 480px){
-  .slide video{ width: 100%; height: auto; }
-  .profile-oval{ width: 160px; height: 160px; }
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manoella Beauty — Luxo & Modernidade</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- FUNDO INTERATIVO -->
-<div class="bg-particles" id="bgParticles"></div>
+  <div class="bg-particles" id="bgParticles" aria-hidden="true"></div>
 
-<!-- HEADER -->
-<header>
-  <img src="img/logo.jpeg" class="logo" alt="Manoella Beauty Logo">
-</header>
+  <header class="site-header">
+    <img src="img/logo.jpeg" alt="Manoella Beauty - Logo" class="site-logo">
+  </header>
 
-<main class="container">
+  <main class="container">
 
-<!-- FOTO E BIO -->
-<section class="hero">
-  <div class="profile-oval">
-    <img src="img/foto.jpeg" alt="Manoella">
-  </div>
-  <p class="bio">
-    Bem-vinda à Manoella Beauty — estética premium em cílios e sobrancelhas.
-    Especialista em técnicas modernas e delicadas para realçar seu olhar com segurança e sofisticação.
-  </p>
-</section>
+    <!-- HERO / PROFILE -->
+    <section class="hero">
+      <div class="profile-oval" title="Foto de Manoella">
+        <img src="img/foto.jpeg" alt="Manoella - Lash Designer">
+      </div>
+      <div class="hero-text">
+        <h1 class="name">Manoella Beauty</h1>
+        <p class="bio">
+          Estética premium em cílios e sobrancelhas. Técnicas modernas e seguras para realçar seu olhar com sofisticação.
+          Agende seu horário e viva a experiência.
+        </p>
+      </div>
+    </section>
 
-<!-- VÍDEOS -->
-<section class="video-slider">
-  <div class="slider-frame">
-    <div class="slides" id="slides">
-      <div class="slide"><video src="videos/video1.mp4" muted loop playsinline></video></div>
-      <div class="slide"><video src="videos/video2.mp4" muted loop playsinline></video></div>
-      <div class="slide"><video src="videos/video3.mp4" muted loop playsinline></video></div>
+    <!-- VIDEO SLIDER (loop estilo stories) -->
+    <section class="video-slider" aria-label="Vídeos destaques">
+      <div class="slider-frame">
+        <div class="slides" id="slides">
+          <div class="slide"><video src="videos/video1.mp4" muted playsinline preload="metadata" ></video></div>
+          <div class="slide"><video src="videos/video2.mp4" muted playsinline preload="metadata" ></video></div>
+          <div class="slide"><video src="videos/video3.mp4" muted playsinline preload="metadata" ></video></div>
+        </div>
+
+        <div class="slider-controls" aria-hidden="false">
+          <button class="ctrl-btn" id="prevBtn" aria-label="Anterior">◀</button>
+          <button class="ctrl-btn" id="nextBtn" aria-label="Próximo">▶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES CARDS -->
+    <section class="services" id="services">
+      <h2>Serviços</h2>
+      <div class="cards">
+
+        <div class="card" data-service="Tufos Tecnológicos 4D" data-price="75.00">
+          <img src="img/tufos4d.jpeg" alt="Tufos 4D">
+          <h3>Tufos Tecnológicos 4D</h3>
+          <div class="price">R$ 75,00</div>
+          <p>Procedimento com tufos 4D — resultado natural e rápido.</p>
+          <a class="btn" data-action="book">Agendar</a>
+        </div>
+
+        <div class="card" data-service="Volume BO$$" data-price="70.00">
+          <img src="img/boss.jpeg" alt="Volume BOSS">
+          <h3>Volume BO$$</h3>
+          <div class="price">R$ 70,00</div>
+          <p>Olhar marcante e cheio de personalidade.</p>
+          <a class="btn" data-action="book">Agendar</a>
+        </div>
+
+        <div class="card" data-service="Volume Luxo" data-price="65.00">
+          <img src="img/luxo.jpeg" alt="Volume Luxo">
+          <h3>Volume Luxo</h3>
+          <div class="price">R$ 65,00</div>
+          <p>Volume elegante e sofisticado.</p>
+          <a class="btn" data-action="book">Agendar</a>
+        </div>
+
+        <div class="card" data-service="Volume Glamour" data-price="65.00">
+          <img src="img/glamour.jpeg" alt="Volume Glamour">
+          <h3>Volume Glamour</h3>
+          <div class="price">R$ 65,00</div>
+          <p>Preenchimento intenso, olhar poderoso.</p>
+          <a class="btn" data-action="book">Agendar</a>
+        </div>
+
+        <div class="card" data-service="Volume Priss" data-price="60.00">
+          <img src="img/priss.jpeg" alt="Volume Priss">
+          <h3>Volume Priss</h3>
+          <div class="price">R$ 60,00</div>
+          <p>Volume médio — equilíbrio entre natural e cheio.</p>
+          <a class="btn" data-action="book">Agendar</a>
+        </div>
+
+        <div class="card" data-service="Volume Classic" data-price="50.00">
+          <img src="img/classic.jpeg" alt="Volume Classic">
+          <h3>Volume Classic</h3>
+          <div class="price">R$ 50,00</div>
+          <p>Leve volume e naturalidade.</p>
+          <a class="btn" data-action="book">Agendar</a>
+        </div>
+
+        <div class="card" data-service="Tufos Brasileiro" data-price="65.00">
+          <img src="img/brasileiro.jpeg" alt="Tufos Brasileiro">
+          <h3>Tufos Brasileiro</h3>
+          <div class="price">R$ 65,00</div>
+          <p>Alongamento sutil e natural.</p>
+          <a class="btn" data-action="book">Agendar</a>
+        </div>
+
+        <div class="card" data-service="Design com Henna" data-price="30.00">
+          <img src="img/henna.jpeg" alt="Design com Henna">
+          <h3>Design com Henna</h3>
+          <div class="price">R$ 30,00</div>
+          <p>Coloração e definição das sobrancelhas.</p>
+          <a class="btn" data-action="book">Agendar</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://goo.gl/maps/" target="_blank" rel="noopener">Como Chegar</a> ·
+      <a href="https://www.instagram.com/manoellabeauty_/" target="_blank" rel="noopener">Instagram</a> ·
+      <a href="https://wa.me/+55219XXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
     </div>
+    <div class="copyright">© 2025 Manoella Beauty — Luxo &amp; Modernidade</div>
+  </footer>
 
-    <div class="slider-controls">
-      <button class="ctrl-btn" id="prevBtn">◀</button>
-      <button class="ctrl-btn" id="nextBtn">▶</button>
-    </div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section class="services">
-  <h2>Serviços</h2>
-
-  <div class="cards">
-
-    <div class="card" data-service="Tufos Tecnológicos 4D" data-price="75">
-      <img src="img/tufos4d.jpeg">
-      <h3>Tufos Tecnológicos 4D</h3>
-      <div class="price">R$ 75,00</div>
-      <p>Procedimento com tufos tecnológicos 4D — resultado rápido e muito bonito.</p>
-      <a class="btn" data-action="book">Agendar</a>
-    </div>
-
-    <div class="card" data-service="Volume BO$$" data-price="70">
-      <img src="img/boss.jpeg">
-      <h3>Volume BO$$</h3>
-      <div class="price">R$ 70,00</div>
-      <p>Volume marcado para quem gosta de um olhar impactante.</p>
-      <a class="btn" data-action="book">Agendar</a>
-    </div>
-
-    <div class="card" data-service="Volume Luxo" data-price="65">
-      <img src="img/luxo.jpeg">
-      <h3>Volume Luxo</h3>
-      <div class="price">R$ 65,00</div>
-      <p>Olhar elegante e moderno.</p>
-      <a class="btn" data-action="book">Agendar</a>
-    </div>
-
-    <div class="card" data-service="Volume Glamour" data-price="65">
-      <img src="img/glamour.jpeg">
-      <h3>Volume Glamour</h3>
-      <div class="price">R$ 65,00</div>
-      <p>Volume intenso e glamouroso.</p>
-      <a class="btn" data-action="book">Agendar</a>
-    </div>
-
-    <div class="card" data-service="Volume Priss" data-price="60">
-      <img src="img/priss.jpeg">
-      <h3>Volume Priss</h3>
-      <div class="price">R$ 60,00</div>
-      <p>Volume médio, equilibrado e muito bonito.</p>
-      <a class="btn" data-action="book">Agendar</a>
-    </div>
-
-    <div class="card" data-service="Volume Classic" data-price="50">
-      <img src="img/classic.jpeg">
-      <h3>Volume Classic</h3>
-      <div class="price">R$ 50,00</div>
-      <p>Natural e delicado.</p>
-      <a class="btn" data-action="book">Agendar</a>
-    </div>
-
-    <div class="card" data-service="Tufos Brasileiro" data-price="65">
-      <img src="img/brasileiro.jpeg">
-      <h3>Tufos Brasileiro</h3>
-      <div class="price">R$ 65,00</div>
-      <p>Olhar leve, delicado e bonito.</p>
-      <a class="btn" data-action="book">Agendar</a>
-    </div>
-
-    <div class="card" data-service="Design com Henna" data-price="30">
-      <img src="img/henna.jpeg">
-      <h3>Design com Henna</h3>
-      <div class="price">R$ 30,00</div>
-      <p>Coloração natural que define e corrige falhas.</p>
-      <a class="btn" data-action="book">Agendar</a>
-    </div>
-
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div style="display:flex;justify-content:center;gap:16px;margin-bottom:12px">
-    <a href="https://www.instagram.com/manoellabeauty_/" target="_blank"><img src="img/instagram.jpeg"></a>
-    <a href="https://wa.me/+55219XXXXXXXX" target="_blank"><img src="img/whatsapp.jpeg"></a>
-  </div>
-  © 2025 Manoella Beauty — Luxo & Modernidade
-</footer>
-
-<!-- ============================= -->
-<!-- SCRIPT -->
-<script>
-// Fundo interativo
-(function createParticles(){
-  const wrap = document.getElementById('bgParticles');
-  for(let i=0;i<20;i++){
-    const p = document.createElement('div');
-    p.className='particle';
-    p.style.left = Math.random()*100 + '%';
-    p.style.top = Math.random()*100 + '%';
-    p.style.animationDuration = (10 + Math.random()*15)+'s';
-    wrap.appendChild(p);
-  }
-})();
-
-// Slider
-(function(){
-  const slides = document.getElementById('slides');
-  const prev = document.getElementById('prevBtn');
-  const next = document.getElementById('nextBtn');
-  let index = 0;
-
-  function move(){
-    const w = slides.children[0].offsetWidth + 20;
-    slides.style.transform = `translateX(${-index*w}px)`;
-  }
-
-  prev.onclick = ()=>{ index = (index - 1 + slides.children.length) % slides.children.length; move(); };
-  next.onclick = ()=>{ index = (index + 1) % slides.children.length; move(); };
-
-  setInterval(()=>{ next.click(); }, 6000);
-})();
-
-// Agendamento
-document.querySelectorAll('.card').forEach(card=>{
-  const btn = card.querySelector('[data-action="book"]');
-  const service = encodeURIComponent(card.dataset.service);
-  const price = encodeURIComponent(card.dataset.price);
-
-  function go(){ window.location.href = `agendamento.html?service=${service}&price=${price}`; }
-
-  card.onclick = go;
-  btn.onclick = e => { e.stopPropagation(); go(); };
-});
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
