@@ -1,135 +1,157 @@
-<style>
-  /* Variáveis de Cores (Adicionando o Rose Gold Sutil) */
-  :root{
-    --bg-dark:#0a0a0a; /* Fundo mais uniforme para maior contraste */
-    --silver:#bfbfbf;
-    --silver-strong:#d9d9d9;
-    --text-light:#f0f0f0;
-    --accent-gold-light: #e6cfa3; /* Dourado/Rose Gold Sutil */
-    --accent-gold-dark: #ccae7a;
-    --bg-card-hover: rgba(191,191,191,0.06);
-  }
+/* ============================
+   ESTILO GERAL
+============================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f8f6ff;
+    color: #2a2a2a;
+}
 
-  /* Reset e Fundo */
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif; /* Fonte mais luxuosa (mude a fonte se estiver disponível) */
-    background: radial-gradient(circle at 10% 10%, rgba(200,180,140,0.03), transparent 20%), /* Toque Rose Gold no fundo */
-                linear-gradient(180deg, var(--bg-dark), #000);
-    color:var(--text-light);
-    -webkit-font-smoothing:antialiased;
-    min-height:100vh;
-  }
+header {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    background: #ffffffbb;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
 
-  /* Partículas (Mantidas) */
-  .bg-particles{
-    position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
-  }
-  .particle{
-    position:absolute;
-    width:6px;height:6px;
-    background:rgba(191,191,191,0.06);
-    border-radius:50%;
-    animation:float 12s linear infinite;
-    filter:blur(.2px);
-  }
-  @keyframes float{
-    0%{transform:translateY(0) translateX(0) scale(1)}
-    50%{transform:translateY(-60vh) translateX(20vw) scale(.9)}
-    100%{transform:translateY(0) translateX(-10vw) scale(1)}
-  }
+header img {
+    width: 140px;
+}
 
-  /* Header / Logo (Refinado) */
-  header{position:relative; z-index:5; padding:24px 24px; display:flex; justify-content:center; align-items:center; border-bottom:1px solid rgba(191,191,191,0.08); background:rgba(0,0,0,0.4); backdrop-filter: blur(4px);}
-  header .logo{width:180px; height:auto; display:block; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.05));} /* Sombra mais sutil no logo */
+/* ============================
+   FOTO DE PERFIL
+============================ */
+.profile-section {
+    text-align: center;
+    margin-top: 20px;
+}
 
-  /* Main container */
-  .container{position:relative; z-index:3; max-width:1100px; margin:40px auto; padding:20px;}
+.profile-section img {
+    width: 220px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #d4b3ff;
+    box-shadow: 0px 4px 20px #c9b8ff;
+}
 
-  /* Hero - profile (Acentuado com Dourado) */
-  .hero{display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center;padding:28px 12px}
-  .profile-oval{
-    width:220px;height:220px; border-radius:50%;
-    overflow:hidden;
-    /* Novo Efeito de Borda: Mais Dourado Sutil */
-    border:4px solid var(--accent-gold-light);
-    box-shadow:0 0 0 6px rgba(230, 207, 163, 0.2), 0 10px 40px rgba(0,0,0,0.4), inset 0 0 50px rgba(255,255,255,0.04);
-    background: radial-gradient(circle, rgba(255,255,255,0.05), rgba(0,0,0,0.6));
-    transition: transform 0.3s ease;
-  }
-  .profile-oval:hover{
-    transform: scale(1.02);
-  }
-  .profile-oval img{width:100%; height:100%; object-fit:cover; display:block;}
-  .bio{max-width:760px; color:var(--silver-strong); font-size:18px; line-height:1.7; margin:0 12px; font-weight:300;}
+.profile-section h1 {
+    margin-top: 20px;
+    font-size: 26px;
+    color: #27203f;
+}
 
-  /* Slider (videos) */
-  .video-slider{margin:40px auto; max-width:920px; position:relative;}
-  .slider-frame{position:relative; overflow:hidden; border-radius:20px; border:2px solid rgba(191,191,191,0.15); background:#050505; padding:16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
-  .slides{display:flex; transition:transform .6s ease; gap:20px;} /* Aumentei o gap */
-  .slide video{width:320px; height:560px; object-fit:cover; border-radius:14px; border:3px solid var(--accent-gold-light); background:#000; box-shadow: 0 4px 15px rgba(0,0,0,0.5);} /* Borda do vídeo dourada */
-  .slider-controls{position:absolute; top:50%; left:12px; right:12px; transform:translateY(-50%); display:flex; justify-content:space-between; pointer-events:none;}
-  .ctrl-btn{pointer-events:auto; background:rgba(0,0,0,0.5); border:1px solid var(--accent-gold-dark); color:var(--accent-gold-light); padding:10px 14px; border-radius:12px; cursor:pointer; font-size:1.2em; transition:all .2s ease;}
-  .ctrl-btn:hover{background:var(--accent-gold-dark); color:#000; box-shadow:0 6px 18px rgba(230, 207, 163, 0.4);}
+.profile-section p {
+    max-width: 500px;
+    margin: auto;
+    font-size: 15px;
+    line-height: 1.6;
+}
 
-  /* Services grid */
-  .services{margin:60px auto; max-width:1100px;}
-  .services h2{color:var(--accent-gold-light); font-weight:700; margin:0 0 24px 0; letter-spacing:2px; text-transform:uppercase; font-size:2em;}
-  .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px} /* Aumentei o min-width e gap */
-  .card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.1)); 
-    border:1px solid rgba(191,191,191,0.1); 
-    padding:20px; 
-    border-radius:18px; 
-    cursor:pointer; 
-    transition:transform .3s ease, box-shadow .3s ease, background .3s ease; 
-    display:flex; flex-direction:column; gap:12px; align-items:center; min-height:350px;
-  }
-  .card:hover{
-    transform:translateY(-8px); 
-    box-shadow:0 20px 50px rgba(0,0,0,0.8), 0 0 20px rgba(230, 207, 163, 0.1); /* Sombra mais dramática e brilho sutil */
-    background: var(--bg-card-hover);
-  }
-  .card img{width:180px; height:180px; object-fit:cover; border-radius:14px; border:3px solid var(--silver-strong); box-shadow: 0 4px 10px rgba(0,0,0,0.4);}
-  .card h3{margin:4px 0 6px 0; color:var(--text-light); font-weight:600; font-size:1.25em;}
-  .card .price{color:var(--accent-gold-light); font-weight:700; font-size:1.4em; margin-bottom:10px; letter-spacing:1px}
-  .card p{color:#c0c0c0; font-size:15px; text-align:center; line-height:1.5; flex-grow:1;}
-  .card .btn{
-    margin-top:auto; 
-    display:inline-block; 
-    padding:12px 20px; 
-    border-radius:100px; /* Borda arredondada */
-    background:transparent; 
-    border:2px solid var(--accent-gold-light); 
-    color:var(--accent-gold-light); 
-    text-decoration:none;
-    font-weight:600;
-    transition:all .3s ease;
-  }
-  .card .btn:hover{
-    background:var(--accent-gold-light); 
-    color:#000;
-    box-shadow:0 0 15px var(--accent-gold-light);
-  }
+/* ============================
+   SLIDER DE VÍDEOS
+============================ */
+.video-slider {
+    width: 100%;
+    max-width: 700px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 4px 20px #c9b8ff;
+}
 
-  /* Footer */
-  footer{margin-top:60px; padding:30px 12px; text-align:center; color:#bdbdbd; border-top:1px solid rgba(191,191,191,0.1); background:rgba(0,0,0,0.3);}
-  footer a img{transition: transform .2s ease, box-shadow .2s ease; border-radius:12px!important;}
-  footer a:hover img{transform: translateY(-2px); box-shadow: 0 0 12px rgba(230, 207, 163, 0.5);}
+.video-slider video {
+    width: 100%;
+    display: none;
+}
 
-  /* Responsive tweaks */
-  @media (max-width:900px){
-    .slide video{width:260px; height:450px}
-    .profile-oval{width:180px;height:180px}
-    .cards{grid-template-columns:repeat(auto-fit, minmax(200px,1fr))}
-  }
-  @media (max-width:480px){
-    .slide video{width:100%; height:auto; aspect-ratio: 9/16;} /* Melhor visualização em mobile */
-    .slider-frame{padding:8px;}
-    .slides{gap:8px; justify-content:flex-start;}
-    .card img{width:150px;height:150px}
-    .services h2{font-size:1.5em; text-align:center;}
-    .profile-oval{width:150px;height:150px}
-  }
-</style>
+.video-slider video.active {
+    display: block;
+}
+
+/* ============================
+   CARDS DE SERVIÇOS
+============================ */
+.services-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.service-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0px 4px 15px #dfd7ff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+}
+
+.service-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.service-card h3 {
+    margin: 10px 0 5px;
+}
+
+.service-card p {
+    font-size: 14px;
+}
+
+/* ============================
+   BOTÃO
+============================ */
+.btn {
+    display: block;
+    width: 180px;
+    margin: 30px auto 60px;
+    padding: 14px;
+    background: #8b6fff;
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0px 3px 10px #b7a5ff;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #6d54e0;
+}
+
+/* ============================
+   RODAPÉ
+============================ */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: #f0eaff;
+}
+
+.social-icons img {
+    width: 45px;
+    margin: 0 10px;
+}
