@@ -5,27 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Manoella Beauty — Luxo e Modernidade</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+</style>
 
 <style>
-  /* Variáveis de Cores (NOVO: Rosa Chiclete para Destaque) */
+  /* Variáveis de Cores (Rosa Chiclete - Alto Contraste) */
   :root{
     --bg-dark:#050505; 
     --accent-main:#ff0099; /* Rosa Shock/Magenta Forte */
     --accent-light: #ff77c0;
     --text-light:#ffffff;
     --silver:#c5c5c5;
-    --bg-card-hover: rgba(255, 0, 153, 0.08); /* Fundo sutilmente rosa no hover */
+    --bg-card-hover: rgba(255, 0, 153, 0.08);
   }
 
-  /* Reset e Fundo */
+  /* CORREÇÃO CRÍTICA: Forçar fundo escuro e texto claro no body */
   *{box-sizing:border-box}
   body{
     margin:0;
-    font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif; /* FONTE ALTERADA */
-    background: radial-gradient(circle at 10% 10%, rgba(255,0,153,0.05), transparent 20%), /* Toque Rosa no fundo */
+    font-family: 'Montserrat', Arial, sans-serif; /* Fallback para Arial */
+    background-color: #000; /* Fundo Preto de Emergência */
+    background: radial-gradient(circle at 10% 10%, rgba(255,0,153,0.05), transparent 20%), 
                 linear-gradient(180deg, var(--bg-dark), #000);
-    color:var(--text-light);
+    color:var(--text-light); /* Texto Branco Garantido */
     -webkit-font-smoothing:antialiased;
     min-height:100vh;
   }
@@ -37,7 +40,7 @@
   .particle{
     position:absolute;
     width:6px;height:6px;
-    background:rgba(255,0,153,0.1); /* Partículas Rosa Sutil */
+    background:rgba(255,0,153,0.1); 
     border-radius:50%;
     animation:float 12s linear infinite;
     filter:blur(.2px);
@@ -60,7 +63,7 @@
   .profile-oval{
     width:220px;height:220px; border-radius:50%;
     overflow:hidden;
-    border:4px solid var(--accent-main); /* BORDA ROSA FORTE */
+    border:4px solid var(--accent-main); 
     box-shadow:0 0 0 6px rgba(255, 0, 153, 0.3), 0 10px 40px rgba(0,0,0,0.4), inset 0 0 50px rgba(255,255,255,0.04);
     background: radial-gradient(circle, rgba(255,0,153,0.08), rgba(0,0,0,0.6));
     transition: transform 0.3s ease;
@@ -82,11 +85,11 @@
 
   /* Services grid */
   .services{margin:60px auto; max-width:1100px;}
-  .services h2{color:var(--accent-light); font-weight:700; margin:0 0 24px 0; letter-spacing:3px; text-transform:uppercase; font-size:2.2em;} /* Título ainda maior */
+  .services h2{color:var(--accent-light); font-weight:700; margin:0 0 24px 0; letter-spacing:3px; text-transform:uppercase; font-size:2.2em;} 
   .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px}
   .card{
     background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.1)); 
-    border:1px solid rgba(255,0,153,0.15); /* Borda sutilmente rosa */
+    border:1px solid rgba(255,0,153,0.15); 
     padding:20px; 
     border-radius:18px; 
     cursor:pointer; 
@@ -95,12 +98,12 @@
   }
   .card:hover{
     transform:translateY(-8px); 
-    box-shadow:0 20px 50px rgba(0,0,0,0.8), 0 0 25px rgba(255, 0, 153, 0.3); /* Sombra dramática + brilho Rosa */
+    box-shadow:0 20px 50px rgba(0,0,0,0.8), 0 0 25px rgba(255, 0, 153, 0.3); 
     background: var(--bg-card-hover);
   }
-  .card img{width:180px; height:180px; object-fit:cover; border-radius:14px; border:3px solid var(--accent-main); box-shadow: 0 4px 10px rgba(0,0,0,0.4);} /* Borda rosa na imagem */
+  .card img{width:180px; height:180px; object-fit:cover; border-radius:14px; border:3px solid var(--accent-main); box-shadow: 0 4px 10px rgba(0,0,0,0.4);} 
   .card h3{margin:4px 0 6px 0; color:var(--text-light); font-weight:600; font-size:1.25em;}
-  .card .price{color:var(--accent-light); font-weight:700; font-size:1.5em; margin-bottom:10px; letter-spacing:1px} /* Preço mais destacado */
+  .card .price{color:var(--accent-light); font-weight:700; font-size:1.5em; margin-bottom:10px; letter-spacing:1px} 
   .card p{color:var(--silver); font-size:15px; text-align:center; line-height:1.5; flex-grow:1;}
   .card .btn{
     margin-top:auto; 
@@ -117,7 +120,7 @@
   .card .btn:hover{
     background:var(--accent-main); 
     color:#000;
-    box-shadow:0 0 20px var(--accent-main); /* Brilho rosa forte no hover */
+    box-shadow:0 0 20px var(--accent-main); 
   }
 
   /* Footer */
@@ -288,7 +291,7 @@
 
     function show(i){
       index = (i + total) % total;
-      slides.style.transform = 'translateX('+(-index * (slides.children[0].offsetWidth + 20))+'px)'; /* Ajuste de 18px para 20px no gap */
+      slides.style.transform = 'translateX('+(-index * (slides.children[0].offsetWidth + 20))+'px)'; 
       // play the visible video and pause others
       for(let j=0;j<total;j++){
         const v = slides.children[j].querySelector('video');
@@ -304,41 +307,3 @@
       // autoplay first video if allowed
       const v0 = slides.children[0].querySelector('video');
       if(v0) v0.play().catch(()=>{});
-    });
-
-    if(prev) prev.addEventListener('click', ()=> show(index-1));
-    if(next) next.addEventListener('click', ()=> show(index+1));
-
-    // auto advance every 6s
-    setInterval(()=> show(index+1), 6000);
-    // handle window resize to recalc slide transform
-    window.addEventListener('resize', ()=> show(index));
-  })();
-
-  // -- Cards booking: open agendamento.html with query param
-  (function cardsBooking(){
-    function toQuery(str){ return encodeURIComponent(str.replace(/\s+/g,' ')); }
-    document.querySelectorAll('.card').forEach(card=>{
-      const btn = card.querySelector('[data-action="book"]');
-      const service = card.getAttribute('data-service') || '';
-      if(btn){
-        btn.addEventListener('click', (e)=> {
-             e.stopPropagation(); // Previne o clique do botão de acionar o clique do card
-          // open agendamento page with service and price
-          const price = card.getAttribute('data-price') || '';
-          window.location.href = 'agendamento.html?service=' + toQuery(service) + '&price=' + toQuery(price);
-        });
-      }
-      // also clicking whole card triggers booking
-      card.addEventListener('click', (e)=> {
-        // avoid double trigger if clicked the button (it will run anyway)
-        if(e.target && e.target.getAttribute && e.target.getAttribute('data-action')==='book') return;
-        const price = card.getAttribute('data-price') || '';
-        window.location.href = 'agendamento.html?service=' + toQuery(service) + '&price=' + toQuery(price);
-      });
-    });
-  })();
-</script>
-
-</body>
-</html>
