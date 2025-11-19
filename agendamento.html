@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agendamento — Manoella Beauty</title>
   <link rel="stylesheet" href="style.css" />
+
   <style>
     body {
       background: #0d0d0d;
@@ -98,7 +99,6 @@
       font-size: .95rem;
     }
 
-    /* Calendário profissional */
     .calendar-box {
       margin-top: 20px;
       padding: 20px;
@@ -122,6 +122,7 @@
       margin-top: 20px;
       text-align: center;
       display: none;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -167,7 +168,12 @@
 
     <div class="calendar-box">
       <h3>Verifique horários disponíveis</h3>
-      <iframe src="https://calendar.google.com" loading="lazy"></iframe>
+
+      <!-- Calendário público que funciona no GitHub -->
+      <iframe 
+        src="https://calendar.google.com/calendar/embed?src=pt_brazilian%23holiday%40group.v.calendar.google.com&ctz=America%2FSao_Paulo"
+        loading="lazy">
+      </iframe>
     </div>
 
     <a class="back-link" href="index.html">← Voltar ao site</a>
@@ -183,14 +189,15 @@
       const date = document.getElementById("date").value.split("-").reverse().join("/");
       const time = document.getElementById("time").value;
 
-      const msg = `Olá! Gostaria de agendar:%0A` +
+      const msg =
+        `Olá! Gostaria de realizar um agendamento:%0A` +
         `Nome: ${name}%0A` +
         `WhatsApp: ${phone}%0A` +
         `Serviço: ${service}%0A` +
         `Data: ${date}%0A` +
-        `Hora: ${time}`;
+        `Horário: ${time}`;
 
-      const number = "55219XXXXXXXX";
+      const number = "55219XXXXXXXX"; // SUBSTITUA PELO SEU NÚMERO
 
       window.open(`https://wa.me/${number}?text=${msg}`, "_blank");
 
